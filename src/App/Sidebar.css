@@ -1,0 +1,108 @@
+/* Disable body scrolling when the sidebar is active. */
+body.navActive {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+
+  visibility: hidden;
+  transition: visibility 0s .3s;
+}
+
+.wrapperActive {
+  composes: wrapper;
+
+  visibility: visible;
+  transition: visibility 0s;
+}
+
+
+/* The sidebar, moved off to the side by default. Has its own scrolling. */
+.content {
+  composes: brandBG from "./colors.css";
+  composes: brandFG from "./colors.css";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  transition: transform .3s;
+  transform: translateX(-100%);
+}
+
+/* Use 100% width for super small screens. */
+@media all and (min-width: 320px) {
+  .content {
+    width: 300px;
+
+    transform: translateX(-300px);
+  }
+}
+
+/* Showing the sidebar moves it into the screen with the sliding animation. */
+.contentActive {
+  composes: content;
+
+  transform: translateX(0);
+}
+
+
+/* The mask creates a semi transparent overlay behind the sidebar. */
+.mask {
+  background-color: #000;
+  position: absolute;
+  cursor: pointer;
+
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: opacity .3s, width 0s .3s, height 0s .3s;
+}
+
+/* Showing the sidebar fades in the mask. */
+.maskActive {
+  composes: mask;
+
+  opacity: .7;
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s;
+}
+
+
+.logo {
+  background-image: url('../../static/images/logo.svg');
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  margin: 2rem auto;
+  display: block;
+}
+
+.menu {
+  font-size: 2rem;
+  list-style: none;
+}
+
+.menuItem {
+  margin-left: 2rem;
+}
+
+.footer {
+  font-size: 1rem;
+  text-align: center;
+}
