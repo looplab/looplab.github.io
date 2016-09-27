@@ -54,7 +54,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env':{
         'NODE_ENV': JSON.stringify('production'),
@@ -65,6 +64,8 @@ module.exports = {
         warnings: false,
       },
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
   ],
 
   postcss: (webpack) => {
