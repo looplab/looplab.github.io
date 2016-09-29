@@ -28,9 +28,11 @@ app.get('*', function(req, res) {
 
 app.listen(3000, function(err) {
   if (err) {
+    // eslint-disable-next-line no-console
     console.log(err)
     return
   }
 
+  // eslint-disable-next-line no-console
   console.log('Listening at http://localhost:3000')
 })

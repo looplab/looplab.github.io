@@ -76,6 +76,7 @@ module.exports = {
       require('autoprefixer')({
         browsers: ['last 2 versions', 'IE > 8'],
       }),
+      require('precss'),
     ]
   },
 }

@@ -21,6 +21,7 @@ export default function Sidebar(props) {
   )
 }
 Sidebar.propTypes = {
+  children: React.PropTypes.node,
   visible: React.PropTypes.bool,
   onOutside: React.PropTypes.func
 }
@@ -39,9 +40,12 @@ export function SidebarMenu(props) {
     </ul>
   )
 }
+SidebarMenu.propTypes = {
+  children: React.PropTypes.node
+}
 
 export function SidebarItem(props) {
-  const action = !!props.link
+  const action = props.link
     ? <Link to={props.link}>{props.text}</Link>
     : <a onClick={props.onClick}>{props.text}</a>
   return (

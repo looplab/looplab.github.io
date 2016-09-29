@@ -11,3 +11,7 @@ export default function Root(props) {
     </Provider>
   )
 }
+Root.propTypes = {
+  store: React.PropTypes.object,
+  history: React.PropTypes.object
+}

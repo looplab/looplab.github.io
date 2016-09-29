@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "property-no-unknown": [ true, {
+      "ignoreProperties": [
+        "composes"
+      ]
+    }],
+
+    "font-family-name-quotes": "always-unless-keyword",
+    "function-url-quotes": "always",
+
+    "declaration-block-single-line-max-declarations": 3,
+    "number-no-trailing-zeros": null,
+
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true
+  }
+}

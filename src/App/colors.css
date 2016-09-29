@@ -1,15 +1,5 @@
-.primaryBG {
-  background-color: #fff;
-}
+$primaryBG: #fff;
+$primaryFG: #222;
 
-.primaryFG {
-  color: #222;
-}
-
-.brandBG {
-  background-color: #fff;
-}
-
-.brandFG {
-  color: #222;
-}
+$brandBG: #fff;
+$brandFG: #222;

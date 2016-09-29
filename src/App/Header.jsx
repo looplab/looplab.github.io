@@ -13,6 +13,9 @@ export default function Header(props) {
     </div>
   )
 }
+Header.propTypes = {
+  children: React.PropTypes.node
+}
 
 export function Burger(props) {
   return (
@@ -26,7 +29,7 @@ Burger.propTypes = {
 }
 
 export function Logo(props) {
-  const className = !!props.center ? styles.logoCenter : styles.logo
+  const className = props.center ? styles.logoCenter : styles.logo
   return <Link to={props.link} className={className} />
 }
 Logo.propTypes = {
@@ -41,9 +44,12 @@ export function Menu(props) {
     </ul>
   )
 }
+Menu.propTypes = {
+  children: React.PropTypes.node
+}
 
 export function MenuItem(props) {
-  const action = !!props.link
+  const action = props.link
     ? <Link to={props.link}>{props.text}</Link>
     : <a onClick={props.onClick}>{props.text}</a>
   return (

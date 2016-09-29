@@ -2,7 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import MediaQuery from 'react-responsive'
 
-import styles from './styles.css'
+// Require instead of import because we don't need the content per se.
+require('./styles.css')
 
 import {actions} from './reducer'
 
@@ -58,5 +59,11 @@ export class App extends React.Component {
       </div>
     )
   }
+}
+App.propTypes = {
+  children: React.PropTypes.node,
+  showSidebar: React.PropTypes.boolean,
+  hideSidebar: React.PropTypes.boolean,
+  sidebarVisible: React.PropTypes.boolean
 }
 export default connect(mapStateToProps, actions)(App)

@@ -1,3 +1,5 @@
+@import './colors.css';
+
 /* Disable body scrolling when the sidebar is active. */
 body.navActive {
   position: fixed;
@@ -6,7 +8,6 @@ body.navActive {
   overflow: hidden;
 }
 
-
 .wrapper {
   position: fixed;
   top: 0;
@@ -14,32 +15,27 @@ body.navActive {
   left: 0;
   right: 0;
   z-index: 2000;
-
   visibility: hidden;
-  transition: visibility 0s .3s;
+  transition: visibility 0s 0.3s;
 }
 
 .wrapperActive {
   composes: wrapper;
-
   visibility: visible;
   transition: visibility 0s;
 }
 
-
 /* The sidebar, moved off to the side by default. Has its own scrolling. */
 .content {
-  composes: brandBG from "./colors.css";
-  composes: brandFG from "./colors.css";
-
+  color: $brandFG;
+  background-color: $brandBG;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-
-  transition: transform .3s;
+  transition: transform 0.3s;
   transform: translateX(-100%);
 }
 
@@ -47,7 +43,6 @@ body.navActive {
 @media all and (min-width: 320px) {
   .content {
     width: 300px;
-
     transform: translateX(-300px);
   }
 }
@@ -55,33 +50,28 @@ body.navActive {
 /* Showing the sidebar moves it into the screen with the sliding animation. */
 .contentActive {
   composes: content;
-
   transform: translateX(0);
 }
-
 
 /* The mask creates a semi transparent overlay behind the sidebar. */
 .mask {
   background-color: #000;
   position: absolute;
   cursor: pointer;
-
   opacity: 0;
   width: 0;
   height: 0;
-  transition: opacity .3s, width 0s .3s, height 0s .3s;
+  transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
 }
 
 /* Showing the sidebar fades in the mask. */
 .maskActive {
   composes: mask;
-
-  opacity: .7;
+  opacity: 0.7;
   width: 100%;
   height: 100%;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
-
 
 .logo {
   background-image: url('../../static/images/logo.svg');

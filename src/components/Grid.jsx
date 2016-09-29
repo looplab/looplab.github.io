@@ -17,6 +17,7 @@ export function Container(props) {
   )
 }
 Container.propTypes = {
+  children: React.PropTypes.node,
   fullWidth: React.PropTypes.bool,
   maxFullWidth: React.PropTypes.bool
 }
@@ -27,6 +28,9 @@ export function Row(props) {
       {props.children}
     </div>
   )
+}
+Row.propTypes = {
+  children: React.PropTypes.node
 }
 
 export function Col(props) {
@@ -43,6 +47,7 @@ export function Col(props) {
   )
 }
 Col.propTypes = {
+  children: React.PropTypes.node,
   span: React.PropTypes.string,
   offset: React.PropTypes.string,
   left: React.PropTypes.bool,
