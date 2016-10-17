@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/maxekman
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://looplab.se
+  * I am maxekman (https://keybase.io/maxekman) on keybase.
+  * I have a public key with fingerprint 79CE 51AB FF66 62E5 0190  D6D8 AD9F DE23 0305 FF85
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101d820be4ba3102fc2304dbfdd2a3bf10065b834ac62d77662a527ed55c7e2fe0e0a",
+            "fingerprint": "79ce51abff6662e50190d6d8ad9fde230305ff85",
+            "host": "keybase.io",
+            "key_id": "ad9fde230305ff85",
+            "kid": "0101d820be4ba3102fc2304dbfdd2a3bf10065b834ac62d77662a527ed55c7e2fe0e0a",
+            "uid": "7594f7c64ff9afe88c6cf08237616419",
+            "username": "maxekman"
+        },
+        "service": {
+            "hostname": "looplab.se",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1476713102,
+    "expire_in": 157680000,
+    "prev": "885afa45eb69c7bee43ead37238942b1a7b467abfa35306b558099731672b5bf",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.58
+Comment: https://keybase.io/crypto
+
+yMInAnicrVJbSFRBGN5VsxQjKbMrpQcqisXObWbO2SLoIQwlopKICJaZc2a2g7vn
+bLtnty2RrB56iAqjIilUSEjJl4IS7KpEFwrFLCyjosWQoqI7ZVrNEXvrsXkZ5uP7
+vv/7//lvTs325fubFv7YH+xYuNt/r+tY0rclZ/BwjUAcc5cQrBGq6fhFIyZNuKFq
+yxSCgiiJkqnJIqEqwYokysyQFVE1CTNNGSuESaIIAdEUFRtQNhGCUMZARtQEwEBU
+ZlSkIhYCArPsMI3H4pbtclukGxRImDAGuYACUdJFE5oaNnVmUl5BEQFjGuDC7U7C
+U/BwBCdomeVwjD9C4/H+wf/PuZPjdgjoKkMGVBnTMaOaZkCDiZqsIChBVdI9YoLG
+bRylnB3FaVodxbZQGxA4mrIM6g3W62SCEXGcWASTsgTlyljccR3DiXB8u+vGgp7M
+3RXzeDspCU04hIhlm3yIXJCi8YTl2EJQ4kzDtTxLSUUQSV6nAYGmY1achiyPARDU
+RH68MjTFLTUNYIZVQAnUDUQoVRWKTQXJiqarMpEwIipE/GuwAhQREgA0UdeRIkEk
+E0CY4PW0w3aEIOAxcZhbJqywjd1knAq13Te25fj8+b7cSVnecvny8wr/rlxlzeTf
+a6tCK698LLuYdfxWqv/0gdY7mWhxpu71y8ZVLZ/rPywjr8rvL3qizQqM7O1o+vYF
+1pftXlFasyZ6pKjPn9PW3tDmLzz1gEzZ/Dw2M/n2e+bbgpF3ex91DxE0u6BpsXJ4
+sDfdOfijNXxt/qsuTbtb97xzRl3B2Xnn2ktqm9/NVS4X3W6sfx+LlvSePH5+rGeS
+aw9v6ut8HP5akb7Ut2FnaHT21n7Q3Pr02Zwl9FfPupJ9gaIX6crwKMycajjT0pJ6
+e/D7QNeO0qMdUkV21XD657RDn0Lvh/Yszqwf2Uhal3+ZbgZ7lv56M6/9evGKq1tW
+o4cn8q70DOf6ByLXDua1lQvZYxf+AHPNSIo=
+=eqL6
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/maxekman
+
+==================================================================
