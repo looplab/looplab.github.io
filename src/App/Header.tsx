@@ -1,8 +1,8 @@
-import React from 'react'
-import {Link} from 'react-router'
-import IoNaviconRound from 'react-icons/lib/io/navicon-round'
+import * as React from 'react'
+import { Link } from 'react-router'
+import * as IoNaviconRound from 'react-icons/lib/io/navicon-round'
 
-import styles from './Header.css'
+import * as styles from './Header.css'
 
 export default function Header(props) {
   return (

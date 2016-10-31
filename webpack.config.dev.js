@@ -3,7 +3,8 @@ const webpack = require('webpack')
 
 module.exports = {
   // or devtool: 'eval' to debug issues with compiled output:
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   entry: [
     // Listen to code updates emitted by hot middleware:
@@ -22,6 +23,10 @@ module.exports = {
 
   module: {
     loaders: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts',
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel',
@@ -56,7 +61,7 @@ module.exports = {
       'src',
       'node_modules'
     ],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
   },
 
   plugins: [

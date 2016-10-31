@@ -1,9 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 
 import {Container, Row, Col} from '../components/Grid'
 
-export default class Home extends React.Component {
-  constructor(props) {
+export interface HomeProps {
+}
+
+export class Home extends React.Component<HomeProps, {}> {
+  constructor(props: HomeProps) {
     super(props)
   }
 
@@ -11,7 +14,7 @@ export default class Home extends React.Component {
     return (
       <Container>
         <Row>
-          <Col span="twelve">
+          <Col span="eight" offset="four">
             <h3>Home</h3>
           </Col>
         </Row>

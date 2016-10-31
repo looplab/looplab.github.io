@@ -9,7 +9,7 @@ import {actions} from './reducer'
 
 export {reducer} from './reducer'
 
-import Header, {Burger, Logo, Menu, MenuItem} from './Header'
+import { Header, Burger, Logo, Menu, MenuItem } from './Header'
 import Sidebar, {SidebarLogo, SidebarMenu, SidebarItem, SidebarFooter} from './Sidebar'
 
 const mapStateToProps = (state) => ({
