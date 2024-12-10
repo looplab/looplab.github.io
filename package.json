@@ -1,0 +1,23 @@
+{
+  "name": "looplab.github.io",
+  "version": "1.0.0",
+  "description": "Marketing website for Looplab AB",
+  "author": "Max Ekman",
+  "license": "ISC",
+  "homepage": "https://github.com/looplab/looplab.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/looplab/looplab.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/looplab/looplab.github.io/issues"
+  },
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./css/global.css -o ./css/style.css --watch"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.0.6",
+    "@tailwindcss/cli": "^4.0.6"
+  }
+}

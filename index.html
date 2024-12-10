@@ -1,101 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Looplab AB</title>
+        <title>Looplab</title>
 
-    <link rel="shortcut icon" href="img/favicon.ico" />
+        <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <!-- <link rel="shortcut icon" href="img/favicon.ico" /> -->
+    </head>
 
-    <link href="css/style.css" rel="stylesheet" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-    <header>
-      <div class="container">
-        <div class="page-header">
-          <img
-            src="img/logo.png"
-            alt="Looplab AB - Cloud and Enterprise Software"
-          />
-        </div>
-      </div>
-    </header>
-
-    <main class="container">
-      <p>
-        Looplab is a creative software company providing tailored solutions and
-        problem solving for cloud and enterprise applications. Experts on cloud,
-        enterprise and web architecture with extensive skills in Golang, Docker,
-        Kubernetes, Google Cloud Platform, React, Typescript and much more.
-      </p>
-      <br />
-      <p>Contact Max Ekman, CEO, for any job inquires!</p>
-      <br />
-    </main>
-
-    <footer>
-      <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <h4>Max Ekman</h4>
+    <body class="bg-white text-lg">
+        <header
+            role="header"
+            id="header"
+            class="lg:container lg:mx-auto mx-4 border-t-6 border-black mt-8 mb-8"
+        >
+            <img
+                src="img/looplab_logo_crop.svg"
+                alt="Looplab logo"
+                class="max-w-50 mt-2"
+            />
+        </header>
+        <main role="main" id="main">
+            <section
+                id="break1"
+                class="min-h-30 w-full bg-[url(../img/break1.jpg)] bg-fixed bg-center bg-cover"
+            ></section>
+            <section
+                id="presentation"
+                class="lg:container mx-4 lg:mx-auto mt-8 mb-12"
+            >
+                <h1>Software architecture studio</h1>
+                <p>
+                    Experienced consulting studio based in Gothenburg, Sweden
+                    that builds
+                    <u>cloud-native systems</u> from the ground up tailored to
+                    your business needs. If you need we also help you build a
+                    productive development team using our extensive network. For
+                    your existing systems, we can engage with you to
+                    <u>rethink, remodel and extend</u> it to fit your business
+                    goals.
+                </p>
+            </section>
+            <section
+                id="break2"
+                class="min-h-40 w-full bg-[url(../img/break2.jpg)] bg-fixed bg-center bg-cover"
+            ></section>
+            <section
+                id="presentation"
+                class="lg:container mx-4 lg:mx-auto mt-8 mb-12"
+            >
+                <h1>Worflow</h1>
+                <p>
+                    We work as consultants on both short and long term missions
+                    depending on your needs, always hands on and fully engaged
+                    in the latest
+                    <u>cloud and dev tech</u>. For smaller companies we work
+                    directly with the CEO and leadership team and for larger
+                    companies we work with the CTO, VPs and team leads as
+                    needed.
+                </p>
+            </section>
+            <section
+                id="break3"
+                class="min-h-40 w-full bg-[url(../img/break3.jpg)] bg-fixed bg-center bg-cover"
+            ></section>
+            <section
+                id="presentation"
+                class="lg:container mx-4 lg:mx-auto mt-8 mb-12"
+            >
+                <h1>Reach out!</h1>
+                <p>
+                    Contact us today with your needs and ideas. We are happy to
+                    meet up for a coffee - virtually or in the Gothenburg area!
+                </p>
+                <p class="text-center text-4xl mt-8">
+                    <a href="mailto:hello@looplab.se" class="no-underline"
+                        >hello@looplab.se</a
+                    >
+                </p>
+            </section>
+            <section
+                id="break4"
+                class="min-h-40 w-full bg-[url(../img/break4.jpg)] bg-fixed bg-center bg-cover"
+            ></section>
+            <section id="about" class="lg:container mx-4 lg:mx-auto mt-8 mb-12">
+                <h1>About the company</h1>
+                <div>
+                    <img
+                        src="img/max_ekman_bw_sq.jpg"
+                        class="w-40 float-left mt-1 mr-4 mb-2"
+                    />
+                    <p>
+                        Looplab was founded in 2014 by Max Ekman to provide
+                        software architecture and development services. Max is
+                        an expert in cloud architecture with extensive knowledge
+                        in various compute domains such as distributed, edge, AI
+                        and high performance embedded. 10+ years of expertise in
+                        Go, with Python, Rust and other popular languages
+                        readily available as needed. Has a diverse toolkit for
+                        modern software engineering, such as: cloud systems
+                        (Google Cloud primarily), system and service
+                        architecture, databases, DevOps and CI/CD, AI and ML
+                        ops, Kubernetes, Terraform, React etc.
+                    </p>
+                </div>
+            </section>
+            <section
+                id="break5"
+                class="min-h-40 w-full bg-[url(../img/break5.jpg)] bg-fixed bg-center bg-cover"
+            ></section>
+        </main>
+        <footer role="footer" id="footer" class="bg-black text-gray">
+            <!-- <div id="pre-pre-footer" class="bg-lightBlue min-h-12"></div> -->
+            <!-- <div id="pre-footer" class="bg-blue min-h-12"></div> -->
+            <div
+                id="page-footer"
+                class="container pt-12 mx-4 lg:mx-auto grid md:grid-cols-3"
+            >
+                <section id="contact">
+                    <address class="not-italic">
+                        <h5>Max Ekman</h5>
+                        Software Architect, Owner
+                        <br />
+                        <a href="mailto:hello@looplab.se">hello@looplab.se</a>
+                        <br />
+                        <a href="tel:+46708710504">+46 (0)708-710504</a>
+                    </address>
+                </section>
+                <section id="social" class="mt-6 md:mt-0">
+                    <a href="https://se.linkedin.com/company/looplab-ab"
+                        >linkedin.com/company/looplab-ab</a
+                    >
+                    <br />
+                    <a href="https://se.linkedin.com/in/max-ekman"
+                        >linkedin.com/in/max-ekman</a
+                    >
+                    <br />
+                    <a href="https://github.com/looplab">github.com/looplab</a>
+                    <br />
+                    <a href="https://github.com/maxekman"
+                        >github.com/maxekman</a
+                    >
+                    <br />
+                </section>
+                <section id="address" class="mt-8 md:mt-0">
+                    <address class="not-italic">
+                        Looplab AB<br />
+                        Slätvarsgatan 18<br />
+                        SE-42679 Västra Frölunda<br />
+                        SWEDEN
+                    </address>
+                </section>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <address>
-                CEO and Owner
-                <br />
-                +46 (0)708-710504
-                <br />
-                <a href="mailto:max@looplab.se">max@looplab.se</a>
-              </address>
+            <div class="container mx-auto py-12">
+                <p class="text-center">Copyright &copy; 2025 Looplab AB</p>
+                <p class="text-center text-sm text-lightBlue">
+                    EU VAT SE556963006301
+                </p>
             </div>
-            <div class="col-sm-4">
-              <address>
-                Slätvarsgatan 21
-                <br />
-                SE-42679 Västra Frölunda <br />
-                SWEDEN
-              </address>
-            </div>
-            <div class="col-sm-4">
-              <a href="https://www.github.com/looplab">github.com/looplab</a>
-              <br />
-              <a href="https://twitter.com/maxekman_">@maxekman_</a>
-              <br />
-              <a href="https://se.linkedin.com/in/max-ekman"
-                >linkedin.com/in/max-ekman</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <br />
-          <p class="text-center">
-            Copyright &copy; 2020 Looplab AB (org nr 556963-0063)
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/retina.min.js"></script>
-  </body>
+        </footer>
+    </body>
 </html>

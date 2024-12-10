@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 976px;
+    --breakpoint-xl: 976px;
+    --breakpoint-2xl: 976px;
+
+    --font-sans: "Helvetica Neue", "Helvetica", sans-serif;
+
+    /* https://colorhunt.co/palette/405d72758694f7e7dcfff8f3 */
+    /* Completely override all colors, might want to reconsider this. */
+    --color-*: initial;
+    --color-black: #252f37;
+    --color-white: #fff8f3;
+    --color-gray: #f7e7dc;
+    --color-lightBlue: #758694;
+    --color-blue: #405d72;
+}
+
+@layer base {
+    h1 {
+        @apply text-2xl mt-4;
+    }
+    h2 {
+        @apply text-xl mt-2;
+    }
+    p {
+        @apply mt-2;
+    }
+    a {
+        @apply underline text-blue;
+    }
+    #footer a {
+        @apply underline text-lightBlue;
+    }
+}
