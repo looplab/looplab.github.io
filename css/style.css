@@ -329,6 +329,9 @@
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
   }
+  .flex {
+    display: flex;
+  }
   .grid {
     display: grid;
   }
@@ -341,6 +344,9 @@
   .min-h-40 {
     min-height: calc(var(--spacing) * 40);
   }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-40 {
     width: calc(var(--spacing) * 40);
   }
@@ -349,6 +355,12 @@
   }
   .max-w-50 {
     max-width: calc(var(--spacing) * 50);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-col {
+    flex-direction: column;
   }
   .border-t-6 {
     border-top-style: var(--tw-border-style);
