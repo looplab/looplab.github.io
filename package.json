@@ -14,7 +14,8 @@
   },
   "main": "index.html",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./css/global.css -o ./css/style.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./css/global.css -o ./css/style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./css/global.css -o ./css/style.css"
   },
   "dependencies": {
     "tailwindcss": "^4.0.6",
