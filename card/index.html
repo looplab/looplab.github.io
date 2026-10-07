@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ask Max — Looplab</title>
+        <link rel="stylesheet" href="../css/style.css?v=2" />
+    </head>
+
+    <body class="min-h-screen flex flex-col bg-white">
+        <header
+            role="header"
+            id="header"
+            class="lg:container lg:mx-auto mx-4 border-t-6 border-black mt-8 mb-8"
+        >
+            <a href="/">
+                <img
+                    src="../img/looplab_logo_crop.svg"
+                    alt="Looplab logo"
+                    class="max-w-50 mt-2"
+                />
+            </a>
+        </header>
+        <main role="main" id="main" class="flex-1 mx-4 lg:mx-auto">
+            <section
+                id="presentation"
+                class="lg:container prose lg:prose-lg prose-neutral mb-8"
+            >
+                <h3>Ask Max</h3>
+                <p>
+                    Curious whether we are the right fit for your system or
+                    team? Ask Max's Action Card about our work, the tech we use
+                    and how we engage, any time of day.
+                </p>
+            </section>
+            <section id="card" class="lg:container mb-12">
+                <iframe
+                    id="ac-embed"
+                    src="https://actioncard.dev/embed/max/"
+                    width="400"
+                    height="640"
+                    title="Max Ekman's Action Card"
+                    style="
+                        border: none;
+                        border-radius: 16px;
+                        width: 100%;
+                        max-width: 400px;
+                    "
+                ></iframe>
+            </section>
+        </main>
+        <footer role="footer" id="footer" class="bg-black text-gray">
+            <div
+                id="page-footer"
+                class="container pt-12 lg:mx-auto grid md:grid-cols-3"
+            >
+                <section id="contact" class="mx-4">
+                    <address class="not-italic">
+                        <h5>Max Ekman</h5>
+                        Software Architect, Owner
+                        <br />
+                        <a href="mailto:hello@looplab.se">hello@looplab.se</a>
+                        <br />
+                        <a href="tel:+46708710504">+46 (0)708-710504</a>
+                    </address>
+                </section>
+                <section id="social" class="mx-4 mt-6 md:mt-0">
+                    <a href="https://se.linkedin.com/company/looplab-ab"
+                        >linkedin.com/company/looplab-ab</a
+                    >
+                    <br />
+                    <a href="https://se.linkedin.com/in/max-ekman"
+                        >linkedin.com/in/max-ekman</a
+                    >
+                    <br />
+                    <a href="https://github.com/looplab">github.com/looplab</a>
+                    <br />
+                    <a href="https://github.com/maxekman"
+                        >github.com/maxekman</a
+                    >
+                    <br />
+                </section>
+                <section id="address" class="mx-4 mt-8 md:mt-0">
+                    <address class="not-italic">
+                        Looplab AB<br />
+                        Slätvarsgatan 18<br />
+                        SE-42679 Västra Frölunda<br />
+                        SWEDEN
+                    </address>
+                </section>
+            </div>
+            <div class="container mx-auto py-12">
+                <p class="text-center">Copyright &copy; 2025 Looplab AB</p>
+                <p class="text-center text-sm text-lightBlue">
+                    EU VAT SE556963006301
+                </p>
+            </div>
+        </footer>
+        <script>
+            window.addEventListener("message", (e) => {
+                if (e.data?.type === "actioncard:resize")
+                    document.getElementById("ac-embed").style.height =
+                        e.data.height + "px";
+            });
+        </script>
+    </body>
+</html>
