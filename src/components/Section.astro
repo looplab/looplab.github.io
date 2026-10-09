@@ -1,0 +1,20 @@
+---
+// One of the page's numbered sections: its number and title in the left gutter (the
+// card theme's 140px indent, widened for the page), its content beside them.
+interface Props {
+  index: string;
+  title: string;
+}
+const { index, title } = Astro.props;
+const id = title.toLowerCase().replaceAll(" ", "-");
+---
+<section id={id} aria-labelledby={`${id}-title`} class="mx-auto grid max-w-[1600px] gap-x-10 gap-y-10 border-t border-rule px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[240px_minmax(0,1fr)]">
+  <div class="flex items-baseline gap-4 lg:flex-col lg:gap-3">
+    <span class="text-xs text-accent">{index}</span>
+    <h2 id={`${id}-title`} class="text-sm">{title}</h2>
+    <slot name="gutter" />
+  </div>
+  <div class="@container min-w-0">
+    <slot />
+  </div>
+</section>

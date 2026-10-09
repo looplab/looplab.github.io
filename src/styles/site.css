@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist-mono";
+
+/* The 2025 site's palette: cream paper, slate ink, a dusty blue for links. */
+@theme {
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --color-ground: #fff8f3;
+  --color-sand: #f7e7dc;
+  --color-title: #252f37;
+  --color-body: #405d72;
+  --color-muted: #758694;
+  --color-accent: #405d72;
+  --color-rule: #252f3726;
+}
+
+@layer base {
+  body {
+    letter-spacing: -0.4px;
+  }
+  h1,
+  h2,
+  h3 {
+    color: var(--color-title);
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    line-height: 0.9;
+  }
+}

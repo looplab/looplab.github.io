@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+import Site from "../layouts/Site.astro";
+import Flip from "../components/Flip.astro";
+import Section from "../components/Section.astro";
+import Logo from "../assets/logo.svg";
+import portrait from "../assets/max.jpg";
+
+const services = [
+  {
+    name: "Fractional CTO",
+    text: "I join your company as a part-time CTO. I own the tech vision, line engineering up with the business, mentor the team and make sure the architecture holds for what's coming, without a full-time hire.",
+    format: "Monthly retainer · 3 months minimum",
+  },
+  {
+    name: "Software architecture",
+    text: "System design, service boundaries, data modelling and cloud-native patterns. I work hands-on with your engineers, not from a whiteboard in another room.",
+    format: "Project-based or ongoing",
+  },
+  {
+    name: "Cloud strategy & migration",
+    text: "GCP and AWS strategy, migration planning and oversight. I've done it enough to know where the landmines are. CI/CD, observability and cost control are part of the architecture from day one.",
+    format: "4–12 weeks, depending on scope",
+  },
+  {
+    name: "Engineering advisory",
+    text: "An experienced outside view when you need one: an architecture review, a stack decision, a roadmap sanity check. Bring the problem and we work through it. No retainer.",
+    format: "1–2 hour sessions",
+  },
+];
+
+interface Job {
+  client: string;
+  role: string;
+  years: string;
+  text: string;
+  url?: string;
+}
+const work: { label: string; intro: string; jobs: Job[] }[] = [
+  {
+    label: "Now",
+    intro: "I keep it to two consulting engagements at a time, next to building Action Card.",
+    jobs: [
+      { client: "Action Card", role: "Co-founder", years: "Now", text: "Intelligent interfaces: one conversational card that speaks in a brand's own voice.", url: "https://actioncard.ai" },
+      { client: "Innspire", role: "Cloud architecture", years: "2025–", text: "A new cloud-native platform for hospitality, serving hotels around the world. AWS and infrastructure as code, built for SOC 2 and PCI from day one.", url: "https://www.innspire.com/" },
+      { client: "InterEast", role: "Cloud architecture", years: "2025–", text: "Their transport platform on GCP: Terraform throughout, deploys automated down to the infrastructure, BigQuery and streaming for BI, and an LLM layer with RAG.", url: "https://www.intereastgroup.com/" },
+    ],
+  },
+  {
+    label: "Before",
+    intro: "Ten years of building platforms from the ground up, often event-sourced, mostly in Go.",
+    jobs: [
+      { client: "Einride", role: "Chief Software Architect", years: "2022–25", text: "Autonomous electric transport. Engineering strategy and vendors, testing moved left off the vehicles, faster releases. Joined as an engineer, left as chief architect.", url: "https://www.einride.tech/" },
+      { client: "InterEast", role: "Software architect", years: "2018–21", text: "A cloud-native logistics platform from scratch: Go and React/TypeScript on Kubernetes and Istio in GCP, backed by Postgres." },
+      { client: "Worldstream", role: "Software architect", years: "2021", text: "A network management platform for a Dutch infrastructure company, event-sourced in Go on Event Horizon.", url: "https://www.worldstream.com/en/" },
+      { client: "Toolbuilders", role: "Software architect", years: "2020–21", text: "Scaled an event-sourced campaign platform and extended it to new uses, in Go on Event Horizon.", url: "https://tool.builders/" },
+      { client: "Pagero", role: "Software architect", years: "2018", text: "Bootstrapped a fintech's cloud migration: on-prem Kubernetes with Terraform beside GKE, all configuration as code.", url: "https://pagero.com" },
+      { client: "AppData", role: "Software architect", years: "2015–16", text: "Back-end for mobile payments, from packet analysis to payment APIs. Go, Cassandra, AWS." },
+      { client: "Great Beyond", role: "Software architect", years: "2014–18", text: "A campaign system for contacts, interactions and targets, with event sourcing and CQRS in Go." },
+    ],
+  },
+  {
+    label: "Origins",
+    intro: "Before software I made pictures. Render pipelines and distributed systems turned out to have a lot in common.",
+    jobs: [
+      { client: "Framestore", role: "Lighting TD, Gravity", years: "2012", text: "Lit CG to match live action on Alfonso Cuarón's Oscar-winning Gravity, and built pipeline tools for Framestore London.", url: "https://www.imdb.com/title/tt1454468/" },
+      { client: "MFX", role: "Lighting TD & CGI artist", years: "2005–14", text: "Started the photoreal branch: product renders and animation, with my own Python tools, C++ shaders for V-Ray and relighting plugins.", url: "https://www.mfx.se/" },
+    ],
+  },
+];
+
+const openSource = [
+  { name: "FSM", text: "Finite state machines for Go. Small, composable, and one of the most used in the ecosystem.", stars: "3.4k", url: "https://github.com/looplab/fsm" },
+  { name: "Event Horizon", text: "Event sourcing for Go, for systems that need audit trails, temporal queries and eventual consistency.", stars: "1.7k", url: "https://github.com/looplab/eventhorizon" },
+];
+
+const link = "underline decoration-title/25 underline-offset-4 hover:decoration-title";
+---
+<Site>
+  <main>
+    <!-- The 2025 site's thick slate bar over the logo. -->
+    <header class="mx-auto max-w-[1600px] px-5 pt-8 sm:px-10 sm:pt-12">
+      <div class="border-t-6 border-title pt-4">
+        <Logo fill="currentColor" width={200} height={48} aria-label="Looplab" role="img" class="text-title" />
+      </div>
+      <div class="grid gap-x-10 gap-y-6 py-16 sm:py-24 lg:grid-cols-[240px_minmax(0,1fr)]">
+        <p class="text-xs text-muted uppercase">Software architect<br />& fractional CTO<br />Gothenburg, Sweden</p>
+        <div class="flex max-w-2xl flex-col gap-8">
+          <h1 class="text-4xl tracking-[-0.04em] sm:text-5xl">Building things<br />that last.</h1>
+          <div class="flex items-start gap-5">
+            <Image src={portrait} alt="Max Ekman" width={192} height={192} loading="eager" class="size-20 shrink-0 grayscale sm:size-24" />
+            <p>
+              I'm Max Ekman. Looplab is my studio: for 12+ years I've helped companies design and build the systems their business runs on, as
+              fractional CTO, architect, or the senior engineer next to their team. Most of it in Go, on Google Cloud and AWS.
+            </p>
+          </div>
+          <a href="mailto:hello@looplab.se" class={`self-start text-title ${link}`}>hello@looplab.se</a>
+        </div>
+      </div>
+    </header>
+
+    <Flip index="01" title="Services" labels={["CTO", "Architecture", "Cloud", "Advisory"]}>
+      {services.map((service) => (
+        <article class="flex flex-col gap-6 *:max-w-2xl">
+          <h3 class="text-2xl tracking-[-0.03em] sm:text-3xl">{service.name}</h3>
+          <p>{service.text}</p>
+          <p class="text-xs text-muted uppercase"><span class="text-title">Format</span> · {service.format}</p>
+        </article>
+      ))}
+    </Flip>
+
+    <Flip index="02" title="Work" labels={work.map((page) => page.label)}>
+      {work.map((page) => (
+        <div class="flex flex-col gap-8">
+          <p class="max-w-2xl">{page.intro}</p>
+          <ul class="flex flex-col border-b border-rule">
+            {page.jobs.map((job) => (
+              <li class="grid gap-2 border-t border-rule py-5 @3xl:grid-cols-[6rem_minmax(0,14rem)_minmax(0,1fr)] @3xl:gap-8">
+                <span class="text-xs text-muted uppercase tabular-nums">{job.years}</span>
+                <h3 class="text-base leading-tight">
+                  {job.url ? <a href={job.url} class={link}>{job.client}</a> : job.client}
+                  <span class="mt-1 block text-xs text-muted">{job.role}</span>
+                </h3>
+                <p class="max-w-2xl">{job.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </Flip>
+
+    <Section index="03" title="Open source">
+      <ul class="grid max-w-4xl gap-x-10 gap-y-10 @3xl:grid-cols-2">
+        {openSource.map((item) => (
+          <li class="flex flex-col gap-3">
+            <h3 class="text-base"><a href={item.url} class={link}>{item.name}</a> <span class="text-xs text-muted normal-case">{item.stars}★</span></h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-10 max-w-2xl">I also organise <span class="text-title">Go West</span>, the Go meetup in Gothenburg. More of my code is on <a href="https://github.com/looplab" class={`text-title ${link}`}>github.com/looplab</a>.</p>
+    </Section>
+
+    <Section index="04" title="Contact">
+      <div class="flex max-w-2xl flex-col gap-6">
+        <p class="text-2xl text-title uppercase tracking-[-0.03em] sm:text-3xl">Tell me what you're working on.</p>
+        <p>I get back to you within a day or two, with a straight answer on fit and availability. Coffee in Gothenburg or a video call both work.</p>
+        <a href="mailto:hello@looplab.se" class={`self-start text-title ${link}`}>hello@looplab.se</a>
+      </div>
+    </Section>
+  </main>
+</Site>

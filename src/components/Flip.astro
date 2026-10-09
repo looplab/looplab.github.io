@@ -1,0 +1,74 @@
+---
+import Section from "./Section.astro";
+
+// Pages side by side, swiped or picked with a switch-style toggle, as on the Action
+// Card decks' doors slide. Each child of the default slot is one page, in the order
+// of `labels`.
+interface Props {
+  index: string;
+  title: string;
+  labels: string[];
+}
+const { index, title, labels } = Astro.props;
+const total = String(labels.length).padStart(2, "0");
+---
+<Section index={index} title={title}>
+  <span slot="gutter" aria-hidden="true" class="ml-auto text-xs tabular-nums lg:ml-0"><span data-flip-count class="text-title">01</span> / {total}</span>
+  <div data-flip>
+    <!-- The pill sits under the buttons and follows the pages as they scroll. Buttons
+         are as wide as their labels, so the script sizes it to whichever it's over. -->
+    <div data-flip-toggle class="relative mb-8 inline-flex rounded-full bg-title/8 p-1 text-xs font-medium uppercase">
+      <span aria-hidden="true" data-flip-pill class="absolute inset-y-1 left-1 rounded-full bg-title"></span>
+      {labels.map((label, i) => (
+        <button type="button" aria-pressed={i === 0 ? "true" : "false"} class="relative rounded-full px-3 py-2 text-title/60 transition-colors duration-300 hover:not-aria-pressed:text-title aria-pressed:text-ground">{label}</button>
+      ))}
+    </div>
+    <div data-flip-pages class="flex snap-x snap-mandatory items-start overflow-x-auto overflow-y-hidden overscroll-x-contain transition-[height] duration-300 [scrollbar-width:none] *:w-full *:shrink-0 *:snap-start *:snap-always">
+      <slot />
+    </div>
+  </div>
+</Section>
+
+<script>
+  const smooth = matchMedia("(prefers-reduced-motion: no-preference)");
+
+  for (const flip of document.querySelectorAll<HTMLElement>("[data-flip]")) {
+    const pages = flip.querySelector<HTMLElement>("[data-flip-pages]")!;
+    const pill = flip.querySelector<HTMLElement>("[data-flip-pill]")!;
+    const count = flip.closest("section")!.querySelector<HTMLElement>("[data-flip-count]")!;
+    const buttons = [...flip.querySelectorAll("button")];
+    const children = [...pages.children] as HTMLElement[];
+    const last = buttons.length - 1;
+
+    // Between two pages the pill is part way between their buttons, in place and size.
+    const follow = () => {
+      const progress = Math.max(0, Math.min(last, pages.scrollLeft / pages.clientWidth));
+      const [i, j, t] = [Math.floor(progress), Math.ceil(progress), progress % 1];
+      const from = buttons[i];
+      const to = buttons[j];
+      pill.style.translate = `${from.offsetLeft - 4 + (to.offsetLeft - from.offsetLeft) * t}px 0`;
+      pill.style.width = `${from.offsetWidth + (to.offsetWidth - from.offsetWidth) * t}px`;
+      // The row is as tall as the page it's on, so a short page leaves no gap under it.
+      pages.style.height = `${children[i].offsetHeight + (children[j].offsetHeight - children[i].offsetHeight) * t}px`;
+      const at = Math.round(progress);
+      buttons.forEach((b, k) => (b.ariaPressed = String(k === at)));
+      count.textContent = String(at + 1).padStart(2, "0");
+    };
+    const show = (i: number) => pages.scrollTo({ left: i * pages.clientWidth, behavior: smooth.matches ? "smooth" : "instant" });
+
+    buttons.forEach((button, i) => {
+      button.addEventListener("click", () => show(i));
+      button.addEventListener("keydown", (event) => {
+        const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+        const next = buttons[i + step];
+        if (!step || !next) return;
+        event.preventDefault();
+        next.focus();
+        show(i + step);
+      });
+    });
+    pages.addEventListener("scroll", follow, { passive: true });
+    addEventListener("resize", follow);
+    follow();
+  }
+</script>
