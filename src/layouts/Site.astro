@@ -1,5 +1,6 @@
 ---
 import "../styles/site.css";
+import CardPane from "../components/CardPane.astro";
 
 interface Props {
   title?: string;
@@ -9,6 +10,8 @@ const {
   title = "Looplab — Max Ekman, software architect & fractional CTO",
   description = "Looplab is Max Ekman's software architecture studio in Gothenburg. Fractional CTO, architecture, cloud and advisory for companies building software that has to last.",
 } = Astro.props;
+// Where the card is served from; until a build sets it, its pane says coming soon.
+const cardUrl = import.meta.env.PUBLIC_CARD_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = new URL("/og.png", Astro.site);
 
@@ -39,6 +42,7 @@ const links = [
     <meta name="twitter:image" content={image} />
   </head>
   <body class="bg-ground font-mono text-[13px] leading-[1.6] text-body antialiased sm:text-[15px]">
+    <CardPane url={cardUrl} />
     <slot />
     <!-- Dark slate with sand type, as the 2025 site's footer. -->
     <footer class="bg-title text-sand">

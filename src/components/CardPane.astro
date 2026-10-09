@@ -1,0 +1,118 @@
+---
+// Max's Action Card as a tech preview: a pane down the right on wide screens, a
+// full-screen sheet behind a pill on narrow ones. The card loads only when the
+// visitor starts it, so nothing reaches Action Card before they choose to chat. With
+// no `url` the pane still shows, with Start marked as coming soon.
+interface Props {
+  url?: string;
+}
+const { url } = Astro.props;
+const src = url && new URL(url);
+src && src.searchParams.set("bg", "000000");
+---
+<script is:inline>
+  // Before first paint, so a wide screen doesn't flash the page without its pane.
+  try {
+    if (matchMedia("(width >= 80rem)").matches && localStorage.getItem("card") !== "closed") document.documentElement.dataset.card = "open";
+  } catch {}
+</script>
+
+<aside id="card" data-src={src ? src.href : undefined} aria-label="Ask my card" class="fixed inset-0 z-50 hidden flex-col bg-black font-mono text-white xl:left-auto xl:w-105">
+  <div class="flex items-center justify-between border-b border-white/15 px-5 py-4 text-xs uppercase">
+    <span><span class="text-[#fe3708]">Tech preview</span> · Ask my card</span>
+    <button type="button" data-card-close aria-label="Close" class="-m-2 p-2 text-white/60 hover:text-white">✕</button>
+  </div>
+  <div data-card-poster class="flex flex-1 flex-col justify-end gap-6 p-5">
+    <p class="text-2xl leading-tight tracking-[-0.03em]">What are you working on?</p>
+    <p class="text-white/60">
+      This is my <a href="https://actioncard.ai" class="underline underline-offset-4">Action Card</a>. Ask about my work and what I've built, or tell it what
+      you need: it answers from what I've given it and brings real requests straight to me.
+    </p>
+    {src ? (
+      <>
+        <button type="button" data-card-start class="self-start bg-white px-5 py-3 text-xs font-medium text-black uppercase hover:bg-[#fe3708] hover:text-white">Start →</button>
+        <p class="text-xs text-white/40">
+          Starting loads Action Card, which keeps the conversation. <a href="https://actioncard.ai/privacy/" class="underline underline-offset-4">Privacy policy</a>
+        </p>
+      </>
+    ) : (
+      <p class="self-start border border-white/25 px-5 py-3 text-xs font-medium text-white/50 uppercase">Start → <span class="text-[#fe3708]">coming soon</span></p>
+    )}
+  </div>
+  <p data-card-offline hidden class="flex-1 content-end p-5 text-white/60">
+    The preview is offline right now. Email me at <a href="mailto:hello@looplab.se" class="text-white underline underline-offset-4">hello@looplab.se</a>.
+  </p>
+</aside>
+
+<button type="button" data-card-open class="fixed right-4 bottom-4 z-40 rounded-full bg-title px-4 py-3 text-xs font-medium text-ground uppercase shadow-lg hover:bg-body">
+  Ask my card · preview
+</button>
+
+<style is:global>
+  html[data-card="open"] #card {
+    display: flex;
+  }
+  html[data-card="open"] [data-card-open] {
+    display: none;
+  }
+  /* Full screen below xl, so the page behind it holds still. */
+  @media (width < 80rem) {
+    html[data-card="open"] body {
+      overflow: hidden;
+    }
+  }
+  @media (width >= 80rem) {
+    html[data-card="open"] body {
+      padding-right: calc(var(--spacing) * 105);
+    }
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+  const pane = document.getElementById("card")!;
+  const poster = pane.querySelector<HTMLElement>("[data-card-poster]")!;
+  const offline = pane.querySelector<HTMLElement>("[data-card-offline]")!;
+  const wide = matchMedia("(width >= 80rem)");
+
+  // Only a wide screen remembers the pane closed; a narrow one always starts on the pill.
+  const remember = (state: "open" | "closed") => {
+    if (!wide.matches) return;
+    try {
+      localStorage.setItem("card", state);
+    } catch {}
+  };
+  const open = () => {
+    root.dataset.card = "open";
+    remember("open");
+  };
+  const close = () => {
+    delete root.dataset.card;
+    remember("closed");
+  };
+
+  document.querySelector("[data-card-open]")!.addEventListener("click", open);
+  pane.querySelector("[data-card-close]")!.addEventListener("click", close);
+  addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !wide.matches && root.dataset.card === "open") close();
+  });
+
+  // The card reports its height as it lays out; no report soon after loading means it
+  // never came up, which the host can't otherwise see across origins.
+  pane.querySelector("[data-card-start]")?.addEventListener("click", () => {
+    const iframe = document.createElement("iframe");
+    iframe.src = pane.dataset.src!;
+    iframe.title = "Max Ekman's Action Card";
+    iframe.className = "w-full flex-1 border-0";
+    let alive = false;
+    addEventListener("message", (event) => {
+      if (event.source === iframe.contentWindow && event.data?.type === "actioncard:resize") alive = true;
+    });
+    setTimeout(() => {
+      if (alive) return;
+      iframe.remove();
+      offline.hidden = false;
+    }, 8000);
+    poster.replaceWith(iframe);
+  });
+</script>
